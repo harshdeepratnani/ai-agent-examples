@@ -34,15 +34,24 @@ Example:
 Do your best!
 """
 
-user_question = "What is the price of royal gala apples today?"
+# Create a main loop
+def main_loop():
+    # Run the chatbot
+    while True:
+        user_input = input(">> ") # Example: "What is the price of royal gala apples today?"
+        if user_input.lower() in ["quit", "exit", "q"]:
+            print("Goodbye!")
+            break
+        
+        messages = [SystemMessage(content=system_message)] + [HumanMessage(content=user_input)]
+        response = app.invoke({"messages": messages},
+                                config={"configurable": {"thread_id": 42}})
+        print(response["messages"][-1].content)
+        
+        # Chain of Thought
+        # for m in response['messages']:
+        #     m.pretty_print()
 
-messages = [SystemMessage(content=system_message)] + [HumanMessage(content=user_question)]
-
-# Use the agent
-final_state = app.invoke(
-    {"messages": messages},
-    config={"configurable": {"thread_id": 42}}
-)
-final_state["messages"][-1].content
-# print(final_state)
-print(final_state["messages"][-1].content)
+# Run the main loop
+if __name__ == "__main__":
+    main_loop()

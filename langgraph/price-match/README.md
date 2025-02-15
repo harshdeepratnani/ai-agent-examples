@@ -35,14 +35,16 @@ Ensure you have Python 3.8+ installed on your system.
 Run the script and enter a product name when prompted:
 ```sh
 python agent.py
+
+Sample user input: >>"What is the price of royal gala apples today?"
 ```
 The agent will return a table displaying prices from Walmart, Loblaws, and Real Canadian Superstore.
 
 ### Example Output
 ```
-| Store           | Walmart     | Loblaws       | Real Canadian |
-|-----------------|-------------|---------------|---------------|
-| Milk            | $3.29 / lb  | $3.25 / lb    | $3.30 / lb    |
+| Store             | Walmart     | Loblaws       | Real Canadian |
+|-------------------|-------------|---------------|---------------|
+| Royal Gala Apples | $3.29 / lb  | $3.25 / lb    | $3.30 / lb    |
 ```
 
 ---
