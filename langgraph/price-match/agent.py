@@ -1,0 +1,48 @@
+from dotenv import load_dotenv
+from langgraph.prebuilt import create_react_agent
+from langgraph.checkpoint.memory import MemorySaver
+from langchain_openai import ChatOpenAI
+from langchain_core.messages import HumanMessage, SystemMessage
+from langchain_community.tools.tavily_search import TavilySearchResults
+
+load_dotenv()
+
+llm = ChatOpenAI(model="gpt-3.5-turbo")
+
+# Initialize Tavily
+tavily = TavilySearchResults(max_results=3)
+
+tools = [tavily]
+
+# Initialize memory to persist state between graph runs
+checkpointer = MemorySaver()
+
+app = create_react_agent(llm, tools, checkpointer=checkpointer)
+
+system_message = """ You are a helpful assistant. Your primaty responsibility is to compare prices of the items as per user's ask.
+Limit your search to walmart.ca, loblaws.ca and realcanadiansuperstore.ca. 
+Do not compare outside of these stores anywhere else, even if the prices are cheaper.
+Respond with a table output with price of the item in all three stores. Make sure that the prices are always calculated as per pound.
+
+Example:
+
+| Store           | Walmart     | Loblaws       | Real Canadian |
+|-----------------|-------------|---------------|---------------|
+| Milk            | $3.29 / lb  | $3.25 / lb    | $3.30 / lb    |
+
+
+Do your best!
+"""
+
+user_question = "What is the price of royal gala apples today?"
+
+messages = [SystemMessage(content=system_message)] + [HumanMessage(content=user_question)]
+
+# Use the agent
+final_state = app.invoke(
+    {"messages": messages},
+    config={"configurable": {"thread_id": 42}}
+)
+final_state["messages"][-1].content
+# print(final_state)
+print(final_state["messages"][-1].content)
