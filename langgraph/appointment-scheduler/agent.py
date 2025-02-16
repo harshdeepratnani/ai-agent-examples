@@ -44,7 +44,6 @@ checkpointer = MemorySaver()
 # Create the graph
 builder = StateGraph(MessagesState)
 builder.add_node("assistant", assistant)
-# builder.add_node("faq_lookup", faq_lookup)
 builder.add_node("tools", ToolNode(tools))
 
 builder.add_edge(START, "assistant")
@@ -55,9 +54,6 @@ builder.add_conditional_edges(
     tools_condition,
 )
 builder.add_edge("tools", "assistant")
-# builder.add_edge("assistant", "faq_lookup")
-# builder.add_edge("assistant", END)
-# builder.add_edge("faq_lookup", END)
 
 # Compile and run the builder
 graph = builder.compile(checkpointer=checkpointer)
