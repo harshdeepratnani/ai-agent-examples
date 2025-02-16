@@ -35,6 +35,8 @@ CALENDLY_API_KEY=
 
 ### 3️⃣ Run the AI Agent
 ```bash
+python vector_store.py # to create the local vector store under /db/chroma_db
+
 python agent.py
 ```
 
