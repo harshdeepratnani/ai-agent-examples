@@ -1,57 +1,51 @@
-# Price Match Agent using LangGraph & Tavily
+# 📅 RAG + Appointment Scheduler AI Agent  
 
-This repository contains a simple **Price Match Agent** built using [LangGraph](https://github.com/langchain-ai/langgraph) and [Tavily](https://tavily.com/). The agent fetches the prices of a user-specified product from **Walmart, Loblaws, and Real Canadian Superstore** and returns a table summarizing the prices.
+This is an **AI-powered Appointment Scheduler** for **SwiftLife Insurance Company**.  
+The agent can:  
+✅ Answer policy-related questions using **RAG (Retrieval-Augmented Generation)**.  
+✅ Schedule appointments via **Calendly’s API**.  
 
-## Features
-- Uses **LangGraph** to manage the workflow of querying multiple sources.
-- Uses **Tavily** for web search to fetch real-time pricing.
-- Outputs a formatted table with product prices from different stores.
+## 🛠️ Tech Stack  
+- **LangGraph** – Multi-agent workflow  
+- **OpenAI’s GPT-3.5 Turbo** – LLM for natural language understanding  
+- **ChromaDB** – Vector store for document retrieval  
+- **Calendly API** – Appointment scheduling  
 
-## Installation
-### Prerequisites
-Ensure you have Python 3.8+ installed on your system.
+## 🔍 How It Works  
+1. The **user asks a question** → The agent **checks the policy document** using **RAG**.  
+2. If a **match is found**, the agent retrieves and responds.  
+3. If the user **wants to book an appointment**, the agent calls **Calendly’s API** and provides confirmation.  
 
-### Steps
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/harshdeepratnani/price-match.git
-   cd price-match
-   ```
-2. Install dependencies:
-   ```sh
-   pip install -r requirements.txt
-   ```
-3. Set up your Tavily API key:
-   ```sh
-   export TAVILY_API_KEY=your_api_key_here  # For Linux/macOS
-   set TAVILY_API_KEY=your_api_key_here  # For Windows (cmd)
-   ```
-   Alternatively, you can store the API key in an `.env` file:
-   ```sh
-   echo "TAVILY_API_KEY=your_api_key_here" > .env
-   ```
+## 🚀 Getting Started  
 
-## Usage
-Run the script and enter a product name when prompted:
-```sh
+### **1️⃣ Install Dependencies**  
+```bash
+pip install -r requirements.txt
+```
+### 2️⃣ Set Up Environment Variables
+Copy .env.example and rename it to .env, then fill in your API keys:
+```bash
+LANGSMITH_TRACING=
+LANGSMITH_ENDPOINT=
+LANGSMITH_API_KEY=
+LANGSMITH_PROJECT=
+OPENAI_API_KEY=
+CALENDLY_API_KEY=
+```
+
+### 3️⃣ Run the AI Agent
+```bash
 python agent.py
 ```
-The agent will return a table displaying prices from Walmart, Loblaws, and Real Canadian Superstore.
 
-### Example Output
-```
-| Store           | Walmart     | Loblaws       | Real Canadian |
-|-----------------|-------------|---------------|---------------|
-| Milk            | $3.29 / lb  | $3.25 / lb    | $3.30 / lb    |
-```
+### 💡 Example Queries & Agent Behavior
 
----
+| User Query | Expected Response | Action Taken |
+|------------|-------------------|--------------|
+| Hi! My name is Harsh	| Hello, Harsh! How can I assist you today? | No tool calls |
+| What is the eligibility criteria? |	Eligibility: Age 18-65, medical check required. |	Uses RAG |
+| What is Term Life Insurance? |	Term Life provides coverage for a fixed period. |	Uses RAG |
+| I would like to schedule an appointment. |	Sure! Let me provide you a link to choose your time slot... | Calls Calendly API
 
-## 📌 **Resources to Learn More**
-- [LangChain Docs](https://python.langchain.com/)
-- [OpenAI API](https://platform.openai.com/docs/)
-- [Tavily Web Search API](https://tavily.com/)
-
----
-
-**Happy price matching! 🎯**
+### 📸 LangGraph Visual Representation
+(Refer to assistant.png for the AI agent’s workflow diagram.)

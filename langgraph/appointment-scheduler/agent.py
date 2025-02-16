@@ -56,7 +56,7 @@ builder.add_conditional_edges(
 )
 builder.add_edge("tools", "assistant")
 # builder.add_edge("assistant", "faq_lookup")
-builder.add_edge("assistant", END)
+# builder.add_edge("assistant", END)
 # builder.add_edge("faq_lookup", END)
 
 # Compile and run the builder
@@ -80,6 +80,8 @@ def main_loop():
         response = graph.invoke({"messages": [HumanMessage(content=user_input)]},
                                 config={"configurable": {"thread_id": 42}})
         print(response["messages"][-1].content)
+        
+        # Chain of Thought
         # for m in response['messages']:
         #     m.pretty_print()
 
