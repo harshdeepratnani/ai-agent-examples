@@ -64,6 +64,11 @@ try:
 except Exception:
     pass
 
+def get_agent_response(user_input):
+    response = graph.invoke({"messages": [HumanMessage(content=user_input)]},
+                                config={"configurable": {"thread_id": 42}})
+    return response["messages"][-1].content
+
 # Create a main loop
 def main_loop():
     # Run the chatbot

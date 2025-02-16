@@ -7,3 +7,4 @@ langchain-core
 langchain-community
 pydantic
 langchain-chroma
+streamlit
