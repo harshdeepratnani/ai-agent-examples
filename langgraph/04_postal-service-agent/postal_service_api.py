@@ -1,8 +1,3 @@
-# Create shipment
-# Create mailing
-# Get api specs
-# Validate
-
 def create_mailing_order_stubbed(recipient: str, address: str, package_type: str):
     if not recipient or not address or not package_type:
         status = 'Failure'

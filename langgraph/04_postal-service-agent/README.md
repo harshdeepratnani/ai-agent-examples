@@ -1,6 +1,6 @@
 # 🚀 AI Agent for Swift Postal Services: Beyond Traditional UIs  
 
-**Can AI Agents replace traditional user interfaces?** This prototype explores a future where users interact directly with AI agents (via chat) to perform complex tasks like FAQ resolution and order creation - *no buttons or forms required*.
+**Can AI Agents replace traditional user interfaces?** This example explores a future where users interact directly with AI agents (via chat) to perform complex tasks like FAQ resolution and order creation - *no buttons or forms required*.
 
 ## 🌟 Key Features  
 - **FAQ Resolution via RAG**: Answers queries using Retrieval-Augmented Generation from policy documents.  
@@ -11,7 +11,7 @@
 
 ## 🛠️ Tech Stack  
 - **AI Agent Core**: LangGraph + OpenAI GPT  
-- **RAG**: ChromaDB (vector store) + FAISS indexing  
+- **RAG**: ChromaDB (vector store)
 - **APIs**: Stubbed `get_api_specs`, `validate_order`, `create_mailing_order`, `create_mailing_order`
 - **UI**: Streamlit for web chat  
 
@@ -26,7 +26,11 @@ pip install -r requirements.txt
 Rename .env.example to .env and add your OpenAI API key:
 
 ```bash
-OPENAI_API_KEY=your_key_here
+LANGSMITH_TRACING=
+LANGSMITH_ENDPOINT=
+LANGSMITH_API_KEY=
+LANGSMITH_PROJECT=
+OPENAI_API_KEY=
 ```
 
 ### 3️⃣ Run the Agent
@@ -42,23 +46,17 @@ Streamlit Chat Interface:
 streamlit run app.py
 ```
 
-🎥 Demo
+### 🎥 Demo
+
 Streamlit Chat Interface
 
-WhatsApp Demo Video
-Watch the agent in action on WhatsApp (External link)
+![Chat Example](chat.png)
 
-🤖 Example Interaction
-User: "I need to ship a 5kg package from Delhi to Mumbai tomorrow."
+<iframe width="560" height="315" 
+  src="whatsapp_video.mov" 
+  frameborder="0" allowfullscreen>
+</iframe>
 
-Agent Workflow:
+### 📸 LangGraph Visual Representation
 
-Calls get_api_specs() to check required fields.
-
-Validates address/weight/dates via validate_order().
-
-Creates shipment order via create_order():
-
-{ "type": "shipment", "from": "Delhi", "to": "Mumbai", ... }
-
-Returns tracking ID and confirmation.
+![Graph](assistant.png)

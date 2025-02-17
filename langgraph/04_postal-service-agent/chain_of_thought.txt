@@ -1,0 +1,73 @@
+================================ Human Message =================================
+
+Hi! My name is Harsh.
+================================== Ai Message ==================================
+
+Hello, Harsh! How can I assist you today?
+================================ Human Message =================================
+
+What is your policy around priority shipments?
+================================== Ai Message ==================================
+Tool Calls:
+  faq_lookup (call_8g8J3pYpv8Lo0KunObfZFaSA)
+ Call ID: call_8g8J3pYpv8Lo0KunObfZFaSA
+  Args:
+    message: What is the policy around priority shipments?
+================================= Tool Message =================================
+Name: faq_lookup
+
+{"messages": "2.2.3 Same-Day Delivery (Limited Geographic Areas):\n\n*   Description: Delivery within the same day within select metropolitan areas. Availability varies depending on the origin and destination.\n*   Features:  Includes real-time tracking and proof of delivery.\n*   Suitable for: Highly urgent items requiring immediate delivery.\n\n2.3 International Shipping Services\n\n2.3.1 Global Priority:2.3 International Shipping Services\n\n2.3.1 Global Priority:\n\n*   Description: Expedited international shipping with delivery typically within 6-10 business days.\n*   Features: Includes tracking and limited insurance coverage (restrictions apply).\n*   Suitable for: Shipping merchandise, documents, and other items internationally requiring faster delivery.\n\n2.3.2 Global Express:2.2.2 Priority Express:\n\n*   Description: Guaranteed next-day delivery by the end of the day to most locations.\n*   Features: Includes tracking, proof of delivery, and $100 insurance coverage (restrictions apply).  Slightly less expensive than Swift Express.\n*   Suitable for: Urgent documents, time-sensitive materials, and other items requiring guaranteed next-day delivery.\n\n2.2.3 Same-Day Delivery (Limited Geographic Areas):"}
+================================== Ai Message ==================================
+
+Our policy around priority shipments includes various options such as Same-Day Delivery (in select metropolitan areas), Global Priority for expedited international shipping, and Priority Express for guaranteed next-day delivery within the same day to most locations. Each option provides specific features and is suitable for different types of urgent shipments. Let me know if you need more specific information or assistance with priority shipments.
+================================ Human Message =================================
+
+How can I create a mailing order?
+================================== Ai Message ==================================
+Tool Calls:
+  get_api_specs (call_lHffX9YjZDswOahIaVhcwQwo)
+ Call ID: call_lHffX9YjZDswOahIaVhcwQwo
+  Args:
+    order_category: mailing
+================================= Tool Message =================================
+Name: get_api_specs
+
+["recipient", "address", "package_type"]
+================================== Ai Message ==================================
+
+To create a mailing order, we need the following information:
+1. Recipient's name
+2. Address
+3. Package type
+
+Please provide the required details to proceed with creating the mailing order.
+================================ Human Message =================================
+
+Got it! I want to send a letter mail to Yash.
+================================== Ai Message ==================================
+
+Great! Could you please provide the address where you would like the letter mail to be sent to, and specify the type of package (e.g., letter envelope)? Once I have this information, we can proceed with creating the mailing order for you.
+================================ Human Message =================================
+
+Yash lives in 1 Beverly Hills.
+================================== Ai Message ==================================
+
+Thank you for providing the address. Could you also confirm the type of package you would like to send, such as a letter envelope or any specific packaging requirement?
+================================ Human Message =================================
+
+A letter envelope.
+================================== Ai Message ==================================
+Tool Calls:
+  create_mailing_order (call_S3a7ILXAMFcJAEES0LlHjM3K)
+ Call ID: call_S3a7ILXAMFcJAEES0LlHjM3K
+  Args:
+    recipient: Yash
+    address: 1 Beverly Hills
+    package_type: letter envelope
+================================= Tool Message =================================
+Name: create_mailing_order
+
+["Success", "Mailing Order Created Successfully", "MAIL123456"]
+================================== Ai Message ==================================
+
+The mailing order has been successfully created for sending a letter envelope to Yash at 1 Beverly Hills. The order ID is MAIL123456. It will be processed accordingly. If you need any further assistance or information, feel free to let me know.

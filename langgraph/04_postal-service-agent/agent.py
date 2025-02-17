@@ -16,6 +16,7 @@ load_dotenv()
 builder = StateGraph(MessagesState)
 
 llm = ChatOpenAI(model="gpt-3.5-turbo")
+# llm = ChatOpenAI(model="gpt-4o-mini")
 
 def faq_lookup(message: str):
     """ Tool that lookup answers to the FAQs """
@@ -39,7 +40,7 @@ def create_shipment_order(recipient: str, address: str, package_type: str):
 def get_api_specs(order_category: str):
     """ Get API Specifications for Mailing or Shipment Order. The order creation request should honor these request specifications in order to successfully create an order. """
 
-    return postal_service_api.get_api_specs_stubbed() # stubbed api call
+    return postal_service_api.get_api_specs_stubbed(order_category) # stubbed api call
 
 def validate_order(recipient: str, address: str, package_type: str):
     """ Determine if the order creation request is valid by checking if all required values have been supplied """
@@ -89,6 +90,9 @@ graph = builder.compile(checkpointer=memory)
 def get_agent_response(user_input):
     response = graph.invoke({"messages": [HumanMessage(content=user_input)]},
                                 config={"configurable": {"thread_id": 42}})
+    # Chain of Thought
+    for m in response['messages']:
+        m.pretty_print()
     return response["messages"][-1].content
 
 # Create a main loop

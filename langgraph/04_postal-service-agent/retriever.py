@@ -15,7 +15,7 @@ def get_answer(query):
     persistent_directory = os.path.join(current_dir, "db", "chroma_db")
 
     # Define the embedding model
-    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
     # Load the existing vector store with the embedding function
     db = Chroma(persist_directory=persistent_directory,

@@ -28,7 +28,7 @@ if not os.path.exists(persistent_directory):
     documents = loader.load()
 
     # Split the document into chunks
-    text_splitter = CharacterTextSplitter(chunk_size=100, chunk_overlap=50)
+    text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=100)
     docs = text_splitter.split_documents(documents)
 
     # Display information about the split documents
@@ -39,7 +39,7 @@ if not os.path.exists(persistent_directory):
     # Create embeddings
     print("\n--- Creating embeddings ---")
     embeddings = OpenAIEmbeddings(
-        model="text-embedding-3-small"
+        model="text-embedding-3-large"
     )  # Update to a valid embedding model if needed
     print("\n--- Finished creating embeddings ---")
 

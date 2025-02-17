@@ -11,10 +11,14 @@ from agent import get_agent_response  # Import AI agent function
 
 app = FastAPI()
 
+# Request payload model
+class UserInputRequest(BaseModel):
+    user_input: str
+
 @app.post("/process")
-async def process_request(user_input):
+def process_request(request: UserInputRequest):
     try:
-        result = await get_agent_response(user_input)
+        result = get_agent_response(request.user_input)
         return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
