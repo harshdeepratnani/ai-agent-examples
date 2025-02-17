@@ -1,4 +1,3 @@
-import os
 from dotenv import load_dotenv
 from langgraph.graph import StateGraph, START, END
 from langchain_openai import ChatOpenAI
@@ -16,7 +15,6 @@ load_dotenv()
 builder = StateGraph(MessagesState)
 
 llm = ChatOpenAI(model="gpt-3.5-turbo")
-# llm = ChatOpenAI(model="gpt-4o-mini")
 
 def faq_lookup(message: str):
     """ Tool that lookup answers to the FAQs """

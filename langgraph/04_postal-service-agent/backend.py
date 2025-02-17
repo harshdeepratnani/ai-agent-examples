@@ -2,11 +2,8 @@
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import asyncio
-from langgraph_sdk import get_client
+
 from langchain_core.messages import convert_to_messages, HumanMessage
-import time
-from typing import Optional
 from agent import get_agent_response  # Import AI agent function
 
 app = FastAPI()

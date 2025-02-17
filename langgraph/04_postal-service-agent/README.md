@@ -48,14 +48,15 @@ streamlit run app.py
 
 ### 🎥 Demo
 
+Whatsapp Demo
+
+Checkout whatsapp_video.mov
+
 Streamlit Chat Interface
 
 ![Chat Example](chat.png)
 
-<iframe width="560" height="315" 
-  src="whatsapp_video.mov" 
-  frameborder="0" allowfullscreen>
-</iframe>
+To understand AI Agent's Chain-of-Thought, check out chain_of_thought.txt
 
 ### 📸 LangGraph Visual Representation
 
