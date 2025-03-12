@@ -1,0 +1,98 @@
+================================ Human Message =================================
+
+I want to travel from Mississauga to Toronto
+================================== Ai Message ==================================
+Name: supervisor
+Tool Calls:
+  transfer_to_find_routes_agent (call_FZGqyKp3qJd9ChSyZJCjsXrK)
+ Call ID: call_FZGqyKp3qJd9ChSyZJCjsXrK
+  Args:
+================================= Tool Message =================================
+Name: transfer_to_find_routes_agent
+
+Successfully transferred to find_routes_agent
+================================== Ai Message ==================================
+Tool Calls:
+  find_routes (call_iRYrvFdlKCjeZPjOaTlIFkBh)
+ Call ID: call_iRYrvFdlKCjeZPjOaTlIFkBh
+  Args:
+    origin: Mississauga
+    destination: Toronto
+================================= Tool Message =================================
+Name: find_routes
+
+[{"mode": "bus", "time": "30 mins", "cost": "$2"}, {"mode": "train", "time": "20 mins", "cost": "$3"}, {"mode": "cab", "time": "15 mins", "cost": "$10"}]
+================================== Ai Message ==================================
+
+I found the following routes from Mississauga to Toronto:
+
+- **Bus**: 30 mins, $2
+- **Train**: 20 mins, $3
+- **Cab**: 15 mins, $10
+
+Which option would you like to choose?
+================================== Ai Message ==================================
+Name: find_routes_agent
+
+Transferring back to supervisor
+Tool Calls:
+  transfer_back_to_supervisor (dfb6bd45-2c16-4303-9da8-070a2645a7d9)
+ Call ID: dfb6bd45-2c16-4303-9da8-070a2645a7d9
+  Args:
+================================= Tool Message =================================
+Name: transfer_back_to_supervisor
+
+Successfully transferred back to supervisor
+================================== Ai Message ==================================
+Name: supervisor
+
+Here are your travel options from Mississauga to Toronto:
+
+1. **Bus**: 30 mins, $2
+2. **Train**: 20 mins, $3
+3. **Cab**: 15 mins, $10
+
+Please let me know which option you'd like to choose!
+================================ Human Message =================================
+
+Cab
+================================== Ai Message ==================================
+Name: supervisor
+Tool Calls:
+  transfer_to_cab_booking_agent (call_aeIPGvnT54g4e3pEGAw1kOrE)
+ Call ID: call_aeIPGvnT54g4e3pEGAw1kOrE
+  Args:
+================================= Tool Message =================================
+Name: transfer_to_cab_booking_agent
+
+Successfully transferred to cab_booking_agent
+================================== Ai Message ==================================
+Tool Calls:
+  book_cab (call_8dnpOBU7eEPFZfNfXLCMUPwL)
+ Call ID: call_8dnpOBU7eEPFZfNfXLCMUPwL
+  Args:
+    origin: Mississauga
+    destination: Toronto
+================================= Tool Message =================================
+Name: book_cab
+
+Successfully booked a cab from Mississauga to Toronto
+================================== Ai Message ==================================
+
+Your cab from Mississauga to Toronto has been successfully booked. Safe travels!
+================================== Ai Message ==================================
+Name: cab_booking_agent
+
+Transferring back to supervisor
+Tool Calls:
+  transfer_back_to_supervisor (ef9bb367-3c05-4b8a-ab26-1c711655c14d)
+ Call ID: ef9bb367-3c05-4b8a-ab26-1c711655c14d
+  Args:
+================================= Tool Message =================================
+Name: transfer_back_to_supervisor
+
+Successfully transferred back to supervisor
+================================== Ai Message ==================================
+Name: supervisor
+
+Your cab from Mississauga to Toronto has been successfully booked. Safe travels!
