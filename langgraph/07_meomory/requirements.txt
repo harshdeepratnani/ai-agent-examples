@@ -1,0 +1,11 @@
+python-dotenv
+typing
+langgraph
+langgraph-checkpoint-sqlite
+langchain_openai
+langchain-core
+langchain-community
+pydantic
+langchain-chroma
+streamlit
+langmem
