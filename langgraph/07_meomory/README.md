@@ -43,7 +43,7 @@ OPENAI_API_KEY=
 Terminal Version:
 
 ```bash
-python agent.py
+python agent_with_memory.py
 ```
 
 ## 🤖 Example Interaction
